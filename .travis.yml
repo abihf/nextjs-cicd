@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "8"
+
+sudo: required
+services:
+  - docker
+
+cache:
+  yarn: true
+
+before_script:
+  - NODE_ENV=production yarn build
+
+script:
+  - NODE_ENV=test yarn test
+  - NODE_ENV=test yarn test-e2e-remote
+
+after_success:
+  # prune dev dependency
+  - rm -rf node_modules && yarn install --production --ignore-scripts --prefer-offline
+
+  # build docker image
+  - docker build -t abihf/nextjs-cicd:${TRAVIS_COMMIT} .
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push abihf/nextjs-cicd:${TRAVIS_COMMIT};
+    fi

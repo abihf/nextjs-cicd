@@ -1,0 +1,28 @@
+{
+  "name": "next-cicd",
+  "version": "0.1.0",
+  "main": "server.js",
+  "repository": "https://github.com/abihf/next-sample",
+  "author": "Abi Hafshin <abi@hafs.in>",
+  "license": "MIT",
+  "dependencies": {
+    "next": "latest",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "enzyme": "^2.8.2",
+    "jest": "^20.0.0",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
+    "testcafe": "^0.17.2",
+    "testcafe-browser-provider-browserstack": "^1.1.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-e2e": "testcafe \"chromium\",\"firefox\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
+    "test-e2e-remote": "testcafe \"browserstack:chrome@60.0:Windows 7\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
+    "dev": "next",
+    "build": "next build"
+  }
+}
