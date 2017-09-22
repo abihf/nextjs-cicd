@@ -5,6 +5,7 @@ exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
   data-jsx={2648947580}
 >
   <p
+    className="uit-hello"
     data-jsx={2648947580}
   >
     Hello World!

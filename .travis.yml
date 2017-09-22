@@ -13,7 +13,7 @@ before_script:
   - NODE_ENV=production yarn build
 
 script:
-  - NODE_ENV=test yarn test
+  - NODE_ENV=test yarn test && yarn codecov
   - NODE_ENV=test yarn test-e2e-remote
 
 after_success:

@@ -11,6 +11,7 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "codecov": "^2.3.0",
     "enzyme": "^2.8.2",
     "jest": "^20.0.0",
     "react-addons-test-utils": "^15.5.1",
@@ -23,6 +24,11 @@
     "test-e2e": "testcafe \"chromium\",\"firefox\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
     "test-e2e-remote": "testcafe \"browserstack:chrome@60.0:Windows 7\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
     "dev": "next",
-    "build": "next build"
+    "build": "next build",
+    "codecov": "codecov"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
