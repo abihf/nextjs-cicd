@@ -1,0 +1,10 @@
+{
+  "extends": "strict-react/es6",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/display-name": 0,
+    "react/react-in-jsx-scope": 0
+  }
+}

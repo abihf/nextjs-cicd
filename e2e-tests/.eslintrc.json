@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "testcafe"
+  ],
+  "extends": "plugin:testcafe/recommended",
+  "parserOptions": {
+    "ecmaVersion": 8
+  }
+}

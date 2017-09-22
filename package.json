@@ -13,6 +13,10 @@
   "devDependencies": {
     "codecov": "^2.3.0",
     "enzyme": "^2.8.2",
+    "eslint": "^4.7.2",
+    "eslint-config-strict-react": "^9.0.2",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-testcafe": "^0.2.1",
     "jest": "^20.0.0",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
@@ -20,6 +24,7 @@
     "testcafe-browser-provider-browserstack": "^1.1.1"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "jest",
     "test-e2e": "testcafe \"chromium\",\"firefox\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
     "test-e2e-remote": "testcafe \"browserstack:chrome@60.0:Windows 7\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
