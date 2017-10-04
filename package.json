@@ -27,7 +27,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest",
-    "test-e2e": "testcafe \"chrome:headless\",\"firefox\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 3000",
+    "test-e2e": "testcafe \"chrome:headless\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 3000",
     "test-e2e-remote": "testcafe \"browserstack:chrome@60.0:Windows 7\" e2e-tests/**/* --app \"node server.js\" --app-init-delay 5000",
     "dev": "next",
     "build": "next build",

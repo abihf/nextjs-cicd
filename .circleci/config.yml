@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:8.6.0
+      - image: circleci/node:8.6.0-browsers
 
 
     working_directory: ~/repo
@@ -25,17 +25,19 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run:
-          command: >
-            mkdir -p ~/reports &&
-            yarn lint -- --format junit --output-file ~/reports/eslint.xml
-          when: always
+      - run: mkdir -p ~/reports
 
       - run:
-          command: >
-            mkdir -p ~/reports &&
-            JEST_JUNIT_OUTPUT=~/reports/jest.xml  yarn test --ci --testResultsProcessor="jest-junit"
-          when: always
+          name: lint
+          command: yarn lint --format junit --output-file ~/reports/eslint.xml
+
+      - run:
+          name: unit test
+          command: JEST_JUNIT_OUTPUT=~/reports/unit.xml  yarn test --ci --testResultsProcessor="jest-junit"
+
+      - run:
+          name: e2e test
+          command: yarn test-e2e --reporter xunit > ~/reports/e2e.xml
 
       - store_test_results:
           path: ~/reports
