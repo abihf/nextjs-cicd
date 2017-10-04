@@ -37,6 +37,7 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: reports/junit/unit-test.xml
             NODE_ENV: test
+      - run: yarn codecov
 
       - run:
           name: build

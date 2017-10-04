@@ -1,5 +1,8 @@
 {
-  "extends": "strict-react/es6",
+  "extends": [
+    "strict/es6",
+    "strict-react/es6"
+  ],
   "parserOptions": {
     "sourceType": "module"
   },
