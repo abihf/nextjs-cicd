@@ -5,6 +5,6 @@ export default () => (
         color: red;
       }
     `}</style>
-    <p className="uit-hello">Hello World?</p>
+    <p className="uit-hello">Hello World!</p>
   </div>
 );
