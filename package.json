@@ -34,7 +34,7 @@
     "codecov": "codecov"
   },
   "jest": {
-    "coverageDirectory": "./coverage/",
+    "coverageDirectory": "./reports/coverage/",
     "collectCoverage": true
   }
 }

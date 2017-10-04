@@ -25,21 +25,33 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: mkdir -p ~/reports
+      - run: mkdir -p reports
 
       - run:
           name: lint
-          command: yarn lint --format junit --output-file ~/reports/eslint.xml
+          command: yarn lint --format junit --output-file reports/junit/lint.xml
 
       - run:
           name: unit test
-          command: JEST_JUNIT_OUTPUT=~/reports/unit.xml  yarn test --ci --testResultsProcessor="jest-junit"
+          command: yarn test --ci --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: reports/junit/unit-test.xml
+            NODE_ENV: test
+
+      - run:
+          name: build
+          command: yarn build
+          environment:
+            NODE_ENV: test
 
       - run:
           name: e2e test
-          command: yarn -s test-e2e --reporter xunit > ~/reports/e2e.xml
+          command: yarn -s test-e2e --reporter xunit > reports/junit/e2e.xml
+          environment:
+            NODE_ENV: test
 
       - store_test_results:
-          path: ~/reports
+          path: reports/junit
+
       - store_artifacts:
-          path: ~/reports
+          path: reports
