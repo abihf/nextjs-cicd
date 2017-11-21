@@ -10,6 +10,8 @@ phases:
   install:
     commands:
       - yarn
+      - pwd
+      - ls node_modules/.bin/
 
   pre_build:
     commands:
