@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     NODE_ENV: "production"
-  parameter-store:
+  # parameter-store:
     # LOGIN_PASSWORD: "dockerLoginPassword"
 
 phases:
