@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-  variables:
-    NODE_ENV: "production"
+  # variables:
+  #   NODE_ENV: "production"
   # parameter-store:
     # LOGIN_PASSWORD: "dockerLoginPassword"
 
@@ -20,7 +20,7 @@ phases:
 
   build:
     commands:
-      - yarn build
+      - NODE_ENV=production yarn build
 
   post_build:
     commands:
