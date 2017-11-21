@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    NODE_ENV: "production"
+  parameter-store:
+    # LOGIN_PASSWORD: "dockerLoginPassword"
+
+phases:
+  install:
+    commands:
+      - yarn
+
+  pre_build:
+    commands:
+      - yarn lint
+      - yarn test
+
+  build:
+    commands:
+      - yarn build
+
+  post_build:
+    commands:
+      # prune dev dependency
+      - rm -rf node_modules && yarn install --production --ignore-scripts --prefer-offline
+
+cache:
+  paths:
+    - '/usr/local/share/.cache/yarn/**/*'
